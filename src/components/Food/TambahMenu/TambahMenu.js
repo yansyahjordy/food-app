@@ -2,12 +2,11 @@ import React from "react";
 import { useState } from "react";
 import styles from "./TambahMenu.module.css";
 import axios from "axios";
+import Dropzone from "react-dropzone";
 
 export default function TambahMenu() {
-  const [foodName, setFoodName] = useState("bakso");
-  const [foodImage, setFoodImage] = useState(
-    "https://api-test.alan.co.id/storage/food/FOOD-2722260709132316395.png"
-  );
+  const [foodName, setFoodName] = useState("");
+  const [foodImage, setFoodImage] = useState("");
   const posturl = "https://api-test.alan.co.id/api/v1/food/add";
   async function PostData() {
     let newData = {};
@@ -23,10 +22,33 @@ export default function TambahMenu() {
     };
     await axios.post(posturl, newData, config);
   }
-  function simpanData (){
+
+  function simpanData() {
     PostData();
-    window.location.href="/food"
+    window.location.href = "/food";
   }
+
+  const uploadImage = async (e) => {
+    const file = e[0];
+    const base64 = await convertBase64(file);
+    setFoodImage(base64);
+    console.log(foodImage);
+  };
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
 
   return (
     <>
@@ -45,7 +67,19 @@ export default function TambahMenu() {
             </div>
             <div>
               <p>Nama Menu</p>
-              <input></input>
+              <Dropzone onDrop={(acceptedFiles) => uploadImage(acceptedFiles)}>
+                {({ getRootProps, getInputProps }) => (
+                  <section className={styles.dragDrop}>
+                    <div {...getRootProps()}>
+                      <input {...getInputProps()} />
+                      <p>Drag and drop some files here, or click</p>
+                    </div>
+                    {foodImage && (
+                      <img src={foodImage} className={styles.dropimage}></img>
+                    )}
+                  </section>
+                )}
+              </Dropzone>
             </div>
             <div>
               <p>Nama Menu</p>
@@ -55,7 +89,7 @@ export default function TambahMenu() {
               </div>
             </div>
             <div className={styles.btn}>
-              <button onClick={()=>simpanData()}>Simpan</button>
+              <button onClick={() => simpanData()}>Simpan</button>
             </div>
           </div>
         </div>
