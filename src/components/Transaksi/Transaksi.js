@@ -33,6 +33,7 @@ export default function Transaksi({ dataset }) {
       }
     });
     setlistMenuBuy(rawData.filter((x) => x.count > 0));
+    
   }
 
   function ResetOrder(e) {
@@ -91,7 +92,7 @@ export default function Transaksi({ dataset }) {
           togglePop ? `${styles.popup} ${styles.activePop}` : styles.popup
         }
       >
-        <PopupTransaksi click={togglePopup} />
+        <PopupTransaksi click={togglePopup} dataset={listMenuBuy}/>
       </div>
       <div
         className={

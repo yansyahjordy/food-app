@@ -2,10 +2,33 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap:20px;
+    gap:30px;
+    font-size: 1.25rem;
   }
-  .table{
+  .textHeader{
+    color: var(--color-blue);
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  .table {
     width: 70%;
+    font-size: 1rem;
+    border-collapse: collapse;
+    border-radius: 10px;
+  }
+  .table img {
+    width: 50px;
+    height: 50px;
+  }
+  .table tr:nth-child(odd) {
+    background-color: rgb(225, 225, 225, 0.3);
+  }
+  .table th {
+    background-color: rgb(200, 200, 200, 0.3);
+    height: 60px;
+  }
+  .table tr {
+    height: 60px;
   }
   .kembalian{
     width:30%;
@@ -29,11 +52,38 @@
   
   .popupButton button{
     width: 100%;
-    height:30px;
+    height:40px;
   }
   .line{
     content: "";
     width: 3px;
-    background-color: black;
+    background-color: rgb(225, 225, 225);
     height: 300px;
+  }
+
+  .button1{
+    font-size: 1.25rem;
+    color:var(--color-red);
+    border:2px solid var(--color-red);
+    border-radius: 5px;
+    background-color: #fff;
+    font-weight: bold;
+  }
+
+  .button2{
+    font-size: 1.25rem;
+    color:white;
+    border:2px solid var(--color-blue);
+    border-radius: 5px;
+    background-color: var(--color-blue);
+    font-weight: bold;
+  }
+
+  .kembalianText{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .kembalianText span{
+    flex:1
   }

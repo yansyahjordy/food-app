@@ -4,7 +4,7 @@ export default function TransaksiMenuCard({ dataset, click }) {
   // console.log(dataset)
 
   return (
-    <div className={style.container} onClick={click}>
+    <div className={style.container} onDoubleClick={click}>
       <img
         src={
           (dataset.picture = ""

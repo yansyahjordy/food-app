@@ -13,6 +13,7 @@
     height: 70%;
     object-fit: cover;
     width: 100%;
+    cursor: pointer;
 }
 .text{
     display: flex;

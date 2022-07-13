@@ -2,12 +2,12 @@ import React from "react";
 import styles from "./FoodList.module.css";
 
 export default function FoodList({ dataset }) {
-  console.log("not f:: ", dataset);
+  // console.log("not f:: ", dataset);
   return (
     <>
       <p className={styles.ptext}>Tambahkan menu makanan yang ada di resto:</p>
       <div className={styles.container}>
-        <button>+ Tambahkan Menu</button>
+        <button onClick={()=> window.location.href = '/food/tambahmenu'}>+ Tambahkan Menu</button>
         <table className={styles.table}>
           <thead>
             <tr>
