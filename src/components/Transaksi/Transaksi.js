@@ -5,9 +5,11 @@ import icon from "../../assets/chef.png";
 import TransaksiMenuCard from "./TransaksiMenuCard/TransaksiMenuCard";
 import ListPesananCard from "./ListPesananCard/ListPesananCard";
 import PopupTransaksi from "./PopupTransaksi/PopupTransaksi";
+import ModalSaved from "./ModalSaved/ModalSaved";
 
 export default function Transaksi({ dataset }) {
   const [togglePop, setTogglePop] = useState(false);
+  const [toggleModal, setToggleModal] = useState(false);
   const [rawData, setrawData] = useState([]);
   const [listMenuBuy, setlistMenuBuy] = useState("");
 
@@ -33,7 +35,6 @@ export default function Transaksi({ dataset }) {
       }
     });
     setlistMenuBuy(rawData.filter((x) => x.count > 0));
-    
   }
 
   function ResetOrder(e) {
@@ -45,6 +46,9 @@ export default function Transaksi({ dataset }) {
 
   function togglePopup() {
     setTogglePop(!togglePop);
+  }
+  function toggleModalActive() {
+    setToggleModal(!toggleModal);
   }
 
   return (
@@ -77,7 +81,7 @@ export default function Transaksi({ dataset }) {
                 <button onClick={() => ResetOrder()}>Clear Cart</button>
               </div>
               <div className={styles.button2}>
-                <button onClick={() => alert("Saved")}>Save Bill</button>{" "}
+                <button onClick={() => toggleModalActive()}>Save Bill</button>{" "}
                 <button onClick={() => window.print()}>Print Bill</button>
               </div>
               <div className={styles.button3}>
@@ -92,13 +96,17 @@ export default function Transaksi({ dataset }) {
           togglePop ? `${styles.popup} ${styles.activePop}` : styles.popup
         }
       >
-        <PopupTransaksi click={togglePopup} dataset={listMenuBuy}/>
+        <PopupTransaksi click={togglePopup} dataset={listMenuBuy} />
       </div>
       <div
         className={
           togglePop ? `${styles.blackBg} ${styles.activePop}` : styles.blackBg
         }
       ></div>
+
+      <div className={toggleModal ? `${styles.activePop}` : styles.modal}>
+        <ModalSaved  click={toggleModalActive}/>
+      </div>
     </div>
   );
 }

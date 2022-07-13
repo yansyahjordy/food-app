@@ -21,7 +21,7 @@ export default function FoodList({ dataset }) {
             {dataset &&
               dataset.map((data, index) => (
                 <tr key={index}>
-                  <td style={{ textAlign: "center" }}>{index}</td>
+                  <td style={{ textAlign: "center" }}>{index+1}</td>
                   <td>{data.name}</td>
                   <td>
                     <img src={data.picture} alt="food"></img>

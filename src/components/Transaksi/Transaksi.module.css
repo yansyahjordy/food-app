@@ -98,7 +98,10 @@
   z-index: 10;
   display: none;
 }
-
+.modal{
+  display: none;
+}
 .activePop{
   display: block;
 }
+
