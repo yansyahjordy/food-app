@@ -4,7 +4,7 @@ export default function TransaksiMenuCard({ dataset, click }) {
   // console.log(dataset)
 
   return (
-    <div className={style.container} onDoubleClick={click}>
+    <div className={style.container} onClick={() => click(dataset.food_code)}>
       <img
         src={
           (dataset.picture = ""
@@ -12,7 +12,6 @@ export default function TransaksiMenuCard({ dataset, click }) {
             : dataset.picture)
         }
         alt="food"
-        id={dataset.food_code}
       />
       <div className={style.text}>
         <p className={style.uptext}>{dataset.name}</p>

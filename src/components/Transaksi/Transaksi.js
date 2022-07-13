@@ -28,9 +28,9 @@ export default function Transaksi({ dataset }) {
       .catch((err) => console.log(err));
   }, []);
 
-  function DoubleClick(e) {
+  function addMenu(e) {
     rawData.forEach((x) => {
-      if (x.food_code === e.target.id) {
+      if (x.food_code === e) {
         x.count++;
       }
     });
@@ -51,11 +51,7 @@ export default function Transaksi({ dataset }) {
   function toggleModalActive() {
     setToggleModal(!toggleModal);
   }
-  function count() {
-    let total = 0;
-    listMenuBuy.map((a) => (total += a.count * a.price));
-    return total;
-  }
+
   return (
     <div>
       <div className={styles.app}>
@@ -66,7 +62,7 @@ export default function Transaksi({ dataset }) {
                 <TransaksiMenuCard
                   key={data.food_code}
                   dataset={data}
-                  click={DoubleClick}
+                  click={addMenu}
                 />
               ))}
           </div>
@@ -105,6 +101,7 @@ export default function Transaksi({ dataset }) {
           click={togglePopup}
           dataset={listMenuBuy}
           setDataset={setlistMenuBuy}
+          rawData={rawData}
         />
       </div>
       <div

@@ -1,7 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import styles from "./PopupTransaksi.module.css";
-export default function PopupTransaksi({ click, dataset, setDataset }) {
+export default function PopupTransaksi({
+  click,
+  dataset,
+  setDataset,
+  rawData,
+}) {
   const [uangPembeli, setUangPembeli] = useState(0);
   const [uangKembalian, setuangKembalian] = useState("-");
   const [isButtonOkActive, setisButtonOkActive] = useState(false);
@@ -23,6 +28,9 @@ export default function PopupTransaksi({ click, dataset, setDataset }) {
   function clearList() {
     setUangPembeli(0);
     setuangKembalian("-");
+    rawData.forEach((x) => {
+      x.count = 0;
+    });
     setDataset([]);
     setisButtonOkActive(false);
     click();

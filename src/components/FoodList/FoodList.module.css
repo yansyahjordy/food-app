@@ -1,46 +1,46 @@
 .app {
-    max-width: 1230px;
-    margin: auto;
-    padding: 0 15px 0 15px;
-  }
-  .content {
-    margin-top: 125px;
-  }
-  .ptext{
-      margin-bottom: 20px;
-      opacity: 0.5;
-  }
-  .container {
-    background-color: white;
-    padding: 20px;
-  }
-  .container button {
-    color: white;
-    background-color: var(--color-blue);
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  .table {
-    width: 100%;
-    font-size: 1rem;
-    border-collapse: collapse;
-    border-radius: 10px;
-  }
-  .table img {
-    width: 50px;
-    height: 50px;
-  }
-  .table tr:nth-child(odd) {
-    background-color: rgb(225, 225, 225, 0.3);
-  }
-  .table th {
-    background-color: rgb(200, 200, 200, 0.3);
-    height: 60px;
-  }
-  .table tr {
-    height: 60px;
-  }
-  
+  max-width: 1230px;
+  margin: auto;
+  padding: 0 15px 0 15px;
+}
+.content {
+  margin-top: 125px;
+}
+.ptext {
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+.container {
+  background-color: white;
+  padding: 20px;
+}
+.container button {
+  cursor: pointer;
+  color: white;
+  background-color: var(--color-blue);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.table {
+  width: 100%;
+  font-size: 1rem;
+  border-collapse: collapse;
+  border-radius: 10px;
+}
+.table img {
+  width: 50px;
+  height: 50px;
+}
+.table tr:nth-child(odd) {
+  background-color: rgb(225, 225, 225, 0.3);
+}
+.table th {
+  background-color: rgb(200, 200, 200, 0.3);
+  height: 60px;
+}
+.table tr {
+  height: 60px;
+}
