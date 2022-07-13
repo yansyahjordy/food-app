@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import icon from "../../assets/fast-food.png";

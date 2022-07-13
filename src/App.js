@@ -1,11 +1,10 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import "./App.css";
 import Food from "./components/Food/Food";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Transaksi from "./components/Transaksi/Transaksi";
-import TambahMenu from "./components/Food/TambahMenu/TambahMenu";
+import TambahMenu from "./components/TambahMenu/TambahMenu";
 
 function App() {
   return (

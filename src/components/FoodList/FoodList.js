@@ -2,12 +2,13 @@ import React from "react";
 import styles from "./FoodList.module.css";
 
 export default function FoodList({ dataset }) {
-  // console.log("not f:: ", dataset);
   return (
     <>
       <p className={styles.ptext}>Tambahkan menu makanan yang ada di resto:</p>
       <div className={styles.container}>
-        <button onClick={()=> window.location.href = '/food/tambahmenu'}>+ Tambahkan Menu</button>
+        <button onClick={() => (window.location.href = "/food/tambahmenu")}>
+          + Tambahkan Menu
+        </button>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -21,7 +22,7 @@ export default function FoodList({ dataset }) {
             {dataset &&
               dataset.map((data, index) => (
                 <tr key={index}>
-                  <td style={{ textAlign: "center" }}>{index+1}</td>
+                  <td style={{ textAlign: "center" }}>{index + 1}</td>
                   <td>{data.name}</td>
                   <td>
                     <img src={data.picture} alt="food"></img>

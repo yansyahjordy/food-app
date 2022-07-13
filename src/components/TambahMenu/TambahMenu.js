@@ -82,7 +82,11 @@ export default function TambahMenu() {
                       <p>Drag and drop some files here, or click</p>
                     </div>
                     {foodImage && (
-                      <img src={foodImage} className={styles.dropimage}></img>
+                      <img
+                        src={foodImage}
+                        className={styles.dropimage}
+                        alt=""
+                      ></img>
                     )}
                   </section>
                 )}
