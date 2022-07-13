@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
-
+import { useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import icon from "../../assets/fast-food.png";
 export default function Navbar() {
-  const [activeTab, setActiveTab] = useState("food")
+  const { pathname } = useLocation();
 
   return (
     <div className={styles.fixed}>
@@ -21,21 +21,19 @@ export default function Navbar() {
           <div className={styles.wrapperNav}>
             <div
               className={
-                activeTab === "food"
+                pathname === "/food"
                   ? `${styles.nav} ${styles.active}`
                   : styles.nav
-              } onClick={()=>setActiveTab("food")}
+              }
             >
-              <a href="/food" >Food</a>
+              <a href="/food">Food</a>
             </div>
             <div
               className={
-                activeTab === "transaksi"
-                  ? `${styles.nav} ${styles.active}`
-                  : styles.nav
-              } onClick={()=>setActiveTab("transaksi")}
+                pathname === "/" ? `${styles.nav} ${styles.active}` : styles.nav
+              }
             >
-              <a href="/" >Transaksi</a>
+              <a href="/">Transaksi</a>
             </div>
           </div>
         </div>

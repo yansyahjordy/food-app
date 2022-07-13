@@ -1,5 +1,5 @@
-import React, { useEffect , useState} from "react";
-// import Navbar from "../../components/Navbar/Navbar";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styles from "./Transaksi.module.css";
 import icon from "../../assets/chef.png";
 import TransaksiMenuCard from "./TransaksiMenuCard/TransaksiMenuCard";
@@ -7,52 +7,58 @@ import ListPesananCard from "./ListPesananCard/ListPesananCard";
 import PopupTransaksi from "./PopupTransaksi/PopupTransaksi";
 
 export default function Transaksi({ dataset }) {
-  const [togglePop, setTogglePop] = useState(false)
+  const [togglePop, setTogglePop] = useState(false);
+  const [rawData, setrawData] = useState([]);
+  const [listMenuBuy, setlistMenuBuy] = useState("");
+
+  const url = "https://api-test.alan.co.id/api/v1/food";
+
+  useEffect(() => {
+    axios
+      .get(url)
+      .then((x) => {
+        let data = x.data.data;
+        data = data.map((ef) => {
+          return { ...ef, price: 10000, count: 0 };
+        });
+        setrawData(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   function DoubleClick(e) {
-    // console.log(e.target.id)
-    dataNew.forEach((x) => {
+    rawData.forEach((x) => {
       if (x.food_code === e.target.id) {
         x.count++;
-        console.log(x.count);
       }
     });
+    setlistMenuBuy(rawData.filter((x) => x.count > 0));
   }
+
   function ResetOrder(e) {
-    // console.log(e.target.id)
-    dataNew.forEach((x) => {
+    rawData.forEach((x) => {
       x.count = 0;
-      console.log(x.count);
     });
+    setlistMenuBuy([]);
   }
-  function togglePopup(){
-    setTogglePop(!togglePop)
+
+  function togglePopup() {
+    setTogglePop(!togglePop);
   }
-  let dataNewFiltered;
-  let dataNew;
-  dataNew = dataset.map((x) => {
-    return { ...x, price: 10000, count: 1 };
-  });
-  dataNewFiltered = dataNew.filter((x) => x.count > 0);
 
-  // useEffect(() => {
-  // }, [])
-
-  // useEffect(() => {
-  //   }
-  // , [dataNew])
-
-  console.log(dataNewFiltered);
-
-  // console.log(dataNew,"newdata")
-  // console.log(dataset)
   return (
     <div>
       <div className={styles.app}>
         <div className={styles.content}>
           <div className={styles.menu}>
-            {dataset.map((data) => (
-              <TransaksiMenuCard dataset={data} click={DoubleClick} />
-            ))}
+            {rawData &&
+              rawData.map((data) => (
+                <TransaksiMenuCard
+                  key={data.food_code}
+                  dataset={data}
+                  click={DoubleClick}
+                />
+              ))}
           </div>
           <div className={styles.pesanan}>
             <div className={styles.logo}>
@@ -60,9 +66,10 @@ export default function Transaksi({ dataset }) {
               <p>Pesanan</p>
             </div>
             <div className={styles.listPesanan}>
-              {dataNewFiltered.map((data) => (
-                <ListPesananCard dataset={data} />
-              ))}
+              {listMenuBuy.length > 0 &&
+                listMenuBuy.map((data) => (
+                  <ListPesananCard key={data.food_code} dataset={data} />
+                ))}
             </div>
             <div className={styles.button}>
               <div className={styles.button1}>
@@ -79,10 +86,18 @@ export default function Transaksi({ dataset }) {
           </div>
         </div>
       </div>
-      <div className={togglePop ? `${styles.popup} ${styles.activePop}`: styles.popup} >
-        <PopupTransaksi click={togglePopup}/>
+      <div
+        className={
+          togglePop ? `${styles.popup} ${styles.activePop}` : styles.popup
+        }
+      >
+        <PopupTransaksi click={togglePopup} />
       </div>
-        <div className={togglePop ? `${styles.blackBg} ${styles.activePop}`: styles.blackBg}></div>
+      <div
+        className={
+          togglePop ? `${styles.blackBg} ${styles.activePop}` : styles.blackBg
+        }
+      ></div>
     </div>
   );
 }

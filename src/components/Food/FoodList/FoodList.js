@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./FoodList.module.css";
 
 export default function FoodList({ dataset }) {
+  console.log("not f:: ", dataset);
   return (
     <>
       <p className={styles.ptext}>Tambahkan menu makanan yang ada di resto:</p>
@@ -17,16 +18,17 @@ export default function FoodList({ dataset }) {
             </tr>
           </thead>
           <tbody>
-            {dataset.map((data, index) => (
-              <tr key={index}>
-                <td style={{ textAlign: "center" }}>{index}</td>
-                <td>{data.name}</td>
-                <td>
-                  <img src={data.picture} alt="food"></img>
-                </td>
-                <td>Rp.10.000</td>
-              </tr>
-            ))}
+            {dataset &&
+              dataset.map((data, index) => (
+                <tr key={index}>
+                  <td style={{ textAlign: "center" }}>{index}</td>
+                  <td>{data.name}</td>
+                  <td>
+                    <img src={data.picture} alt="food"></img>
+                  </td>
+                  <td>Rp.10.000</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
