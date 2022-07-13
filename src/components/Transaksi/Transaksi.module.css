@@ -84,7 +84,8 @@
   background-color: #fff;
   border-radius: 10px;
   z-index: 11;
-  padding:20px
+  padding:20px;
+  display: none;
 }
 
 .blackBg {
@@ -95,4 +96,9 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
+  display: none;
+}
+
+.activePop{
+  display: block;
 }

@@ -10,7 +10,7 @@ export default function Food({dataset}) {
       <div className={styles.app}>
         <div className={styles.content}>
           <FoodList dataset={dataset}/>
-          <TambahMenu/>
+          {/* <TambahMenu/> */}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./PopupTransaksi.module.css"
-export default function PopupTransaksi() {
+export default function PopupTransaksi({click}) {
   return (
     <>
       <p>Detail Pesanan</p>
@@ -30,7 +30,7 @@ export default function PopupTransaksi() {
           <p>Uang Pembeli (Rp.)</p>
           <input></input>
           <div className={styles.popupButton}>
-            <button>Close</button>
+            <button onClick={()=>click()}>Close</button>
             <button>Pay!</button>
           </div>
           <p>Kembalian : </p>

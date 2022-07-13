@@ -6,10 +6,11 @@ import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Transaksi from "./components/Transaksi/Transaksi";
+import TambahMenu from "./components/Food/TambahMenu/TambahMenu";
 
 function App() {
   const [data, setData] = useState([]);
-  
+
   const url = "https://api-test.alan.co.id/api/v1/food";
   async function getData() {
     try {
@@ -28,10 +29,9 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<Transaksi dataset={data} />}>
-        </Route>
-        <Route exact path="/Food" element={<Food dataset={data} />}>
-        </Route>
+        <Route path="/" element={<Transaksi dataset={data} />}></Route>
+        <Route path="/food" element={<Food dataset={data} />}></Route>
+        <Route path="/food/tambahmenu" element={<TambahMenu />}></Route>
       </Routes>
       <div></div>
     </Router>

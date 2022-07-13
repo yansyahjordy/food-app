@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState} from "react";
 // import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Transaksi.module.css";
 import icon from "../../assets/chef.png";
@@ -7,6 +7,7 @@ import ListPesananCard from "./ListPesananCard/ListPesananCard";
 import PopupTransaksi from "./PopupTransaksi/PopupTransaksi";
 
 export default function Transaksi({ dataset }) {
+  const [togglePop, setTogglePop] = useState(false)
   function DoubleClick(e) {
     // console.log(e.target.id)
     dataNew.forEach((x) => {
@@ -22,6 +23,9 @@ export default function Transaksi({ dataset }) {
       x.count = 0;
       console.log(x.count);
     });
+  }
+  function togglePopup(){
+    setTogglePop(!togglePop)
   }
   let dataNewFiltered;
   let dataNew;
@@ -69,16 +73,16 @@ export default function Transaksi({ dataset }) {
                 <button onClick={() => window.print()}>Print Bill</button>
               </div>
               <div className={styles.button3}>
-                <button>Charge Rp 40.000</button>
+                <button onClick={() => togglePopup()}>Charge Rp 40.000</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className={styles.popup}>
-        <PopupTransaksi/>
+      <div className={togglePop ? `${styles.popup} ${styles.activePop}`: styles.popup} >
+        <PopupTransaksi click={togglePopup}/>
       </div>
-        <div className={styles.blackBg}></div>
+        <div className={togglePop ? `${styles.blackBg} ${styles.activePop}`: styles.blackBg}></div>
     </div>
   );
 }
