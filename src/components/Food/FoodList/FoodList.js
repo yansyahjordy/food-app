@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./FoodList.module.css"
+import styles from "./FoodList.module.css";
 
-export default function FoodList() {
+export default function FoodList({ dataset }) {
   return (
     <>
       <p className={styles.ptext}>Tambahkan menu makanan yang ada di resto:</p>
       <div className={styles.container}>
         <button>+ Tambahkan Menu</button>
-        <table class={styles.table}>
+        <table className={styles.table}>
           <thead>
             <tr>
               <th style={{ width: "10%" }}>#</th>
@@ -17,38 +17,16 @@ export default function FoodList() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td style={{ textAlign: "center" }}>1</td>
-              <td>Sate Ayam</td>
-              <td>
-                <img src="https://via.placeholder.com/400" alt="food"></img>
-              </td>
-              <td>Rp.10.000</td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: "center" }}>1</td>
-              <td>Sate Ayam</td>
-              <td>
-                <img src="https://via.placeholder.com/400" alt="food"></img>
-              </td>
-              <td>Rp.10.000</td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: "center" }}>1</td>
-              <td>Sate Ayam</td>
-              <td>
-                <img src="https://via.placeholder.com/400" alt="food"></img>
-              </td>
-              <td>Rp.10.000</td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: "center" }}>1</td>
-              <td>Sate Ayam</td>
-              <td>
-                <img src="https://via.placeholder.com/400" alt="food"></img>
-              </td>
-              <td>Rp.10.000</td>
-            </tr>
+            {dataset.map((data, index) => (
+              <tr key={index}>
+                <td style={{ textAlign: "center" }}>{index}</td>
+                <td>{data.name}</td>
+                <td>
+                  <img src={data.picture} alt="food"></img>
+                </td>
+                <td>Rp.10.000</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

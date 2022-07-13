@@ -62,3 +62,12 @@
   font-weight: 600;
   font-size: 1.25rem;
 }
+
+.active{
+  
+  border-bottom: 3px solid var(--color-blue);
+}
+
+.active a{
+  color: var(--color-blue);
+}

@@ -38,8 +38,9 @@
   }
   .table th {
     background-color: rgb(200, 200, 200, 0.3);
-    height: 57px;
+    height: 60px;
   }
-  .table td {
+  .table tr {
+    height: 60px;
   }
   

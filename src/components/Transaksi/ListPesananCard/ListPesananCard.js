@@ -1,6 +1,6 @@
 import React from 'react'
 import style from "./ListPesananCard.module.css"
-export default function ListPesananCard() {
+export default function ListPesananCard({dataset}) {
   return (
     <>
     <div className={style.container}>
@@ -8,11 +8,11 @@ export default function ListPesananCard() {
         <img src="https://via.placeholder.com/400" alt="food"></img>
       </div>
       <div className={style.food}>
-        Sate Ayam
+        {dataset.name}
       </div>
       <div className={style.quantity}>
-        <div className={style.uptext}>x1</div>
-        <div className={style.downtext}>Rp.10.000</div>
+        <div className={style.uptext}>{dataset.count} X</div>
+        <div className={style.downtext}>Rp.{dataset.price}</div>
       </div>
     </div>
     </>
