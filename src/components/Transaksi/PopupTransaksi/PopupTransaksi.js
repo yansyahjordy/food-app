@@ -1,28 +1,32 @@
 import React from "react";
 import { useState } from "react";
 import styles from "./PopupTransaksi.module.css";
-export default function PopupTransaksi({ click, dataset }) {
+export default function PopupTransaksi({ click, dataset, setDataset }) {
   const [uangPembeli, setUangPembeli] = useState(0);
-  // console.log(dataset);
-  function count() {
+  const [uangKembalian, setuangKembalian] = useState("-");
+  const [isButtonOkActive, setisButtonOkActive] = useState(false);
+
+  function HitungKembalian(pembeli) {
     let total = 0;
     dataset.map((a) => (total += a.count * a.price));
-    return total;
-  }
-  function HitungKembalian(total, pembeli) {
-    if (typeof Number(pembeli) !== "number" || pembeli - total == NaN) {
-      return "tolong isi angka";
+
+    if (isNaN(pembeli)) {
+      setuangKembalian("tolong isi angka");
     } else if (total > pembeli) {
-      return "Uang Tidak Cukup";
+      setuangKembalian("Uang Tidak Cukup");
     } else {
-      return pembeli - total;
+      setisButtonOkActive(true);
+      setuangKembalian(pembeli - total);
     }
   }
-  function Pay() {
-    let span = document.getElementById("banyakKembalian");
-    span.textContent = HitungKembalian(count(), uangPembeli);
+
+  function clearList() {
+    setUangPembeli(0);
+    setuangKembalian("-");
+    setDataset([]);
+    setisButtonOkActive(false);
+    click();
   }
-  console.log("count", typeof Number(uangPembeli));
   return (
     <>
       <p className={styles.textHeader}>Detail Pesanan</p>
@@ -63,14 +67,22 @@ export default function PopupTransaksi({ click, dataset }) {
             <button className={styles.button1} onClick={() => click()}>
               Close
             </button>
-            <button className={styles.button2} onClick={() => Pay()}>
+            <button
+              className={styles.button2}
+              onClick={() => HitungKembalian(uangPembeli)}
+            >
               Pay!
             </button>
           </div>
           <div className={styles.kembalianText}>
-            <p>Kembalian :   </p>
-            <p id="banyakKembalian"></p>
+            <p>Kembalian : </p>
+            <p id="banyakKembalian">{uangKembalian}</p>
           </div>
+          {isButtonOkActive && (
+            <button className={styles.button3} onClick={() => clearList()}>
+              OK!
+            </button>
+          )}
         </div>
       </div>
     </>

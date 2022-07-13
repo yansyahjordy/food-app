@@ -47,6 +47,7 @@ export default function Transaksi({ dataset }) {
   function togglePopup() {
     setTogglePop(!togglePop);
   }
+
   function toggleModalActive() {
     setToggleModal(!toggleModal);
   }
@@ -89,7 +90,7 @@ export default function Transaksi({ dataset }) {
                 <button onClick={() => window.print()}>Print Bill</button>
               </div>
               <div className={styles.button3}>
-                <button onClick={() => togglePopup()}>Charge {()=>count()}</button>
+                <button onClick={() => togglePopup()}>Charge</button>
               </div>
             </div>
           </div>
@@ -100,7 +101,11 @@ export default function Transaksi({ dataset }) {
           togglePop ? `${styles.popup} ${styles.activePop}` : styles.popup
         }
       >
-        <PopupTransaksi click={togglePopup} dataset={listMenuBuy} />
+        <PopupTransaksi
+          click={togglePopup}
+          dataset={listMenuBuy}
+          setDataset={setlistMenuBuy}
+        />
       </div>
       <div
         className={
@@ -109,7 +114,7 @@ export default function Transaksi({ dataset }) {
       ></div>
 
       <div className={toggleModal ? `${styles.activePop}` : styles.modal}>
-        <ModalSaved  click={toggleModalActive}/>
+        <ModalSaved click={toggleModalActive} />
       </div>
     </div>
   );

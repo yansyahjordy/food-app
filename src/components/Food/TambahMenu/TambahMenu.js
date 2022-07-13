@@ -7,32 +7,39 @@ import Dropzone from "react-dropzone";
 export default function TambahMenu() {
   const [foodName, setFoodName] = useState("");
   const [foodImage, setFoodImage] = useState("");
-  const posturl = "https://api-test.alan.co.id/api/v1/food/add";
-  async function PostData() {
-    let newData = {};
-    newData.name = foodName;
-    newData.picture = foodImage;
-    newData.price = 10000;
-    newData.satuan = "piring";
-    const config = {
-      headers: {
-        "X-SECRET-TOKEN":
-          "$2a$16$TlB6hYDRMSF5HBgxImeaU.itfBOu881/lI4mSPMR0jYRnMXklQKp6",
-      },
-    };
-    await axios.post(posturl, newData, config);
-  }
+  const [price, setPrice] = useState("");
 
-  function simpanData() {
-    PostData();
-    window.location.href = "/food";
+  const posturl = "https://api-test.alan.co.id/api/v1/food/add";
+  const config = {
+    headers: {
+      "X-SECRET-TOKEN":
+        "$2a$16$TlB6hYDRMSF5HBgxImeaU.itfBOu881/lI4mSPMR0jYRnMXklQKp6",
+    },
+  };
+
+  function PostData() {
+    axios
+      .post(
+        posturl,
+        {
+          name: foodName,
+          picture: foodImage,
+          price,
+          satuan: "piring",
+        },
+        config
+      )
+      .then((resp) => {
+        console.log(resp);
+        window.location.href = "/food";
+      })
+      .catch((err) => console.log(err));
   }
 
   const uploadImage = async (e) => {
     const file = e[0];
     const base64 = await convertBase64(file);
     setFoodImage(base64);
-    console.log(foodImage);
   };
 
   const convertBase64 = (file) => {
@@ -85,11 +92,14 @@ export default function TambahMenu() {
               <p>Nama Menu</p>
               <div className={styles.inputRp}>
                 <div className={styles.Rp}>Rp.</div>
-                <input></input>
+                <input
+                  onChange={(e) => setPrice(e.target.value)}
+                  value={price}
+                ></input>
               </div>
             </div>
             <div className={styles.btn}>
-              <button onClick={() => simpanData()}>Simpan</button>
+              <button onClick={() => PostData()}>Simpan</button>
             </div>
           </div>
         </div>
