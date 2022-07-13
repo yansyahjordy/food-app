@@ -16,24 +16,22 @@ export default function Navbar() {
         </div>
       </div>
       <div className={styles.backgroundWhite}>
-        <div className={styles.containerNav}>
-          <div className={styles.wrapperNav}>
-            <div
-              className={
-                pathname === "/food"
-                  ? `${styles.nav} ${styles.active}`
-                  : styles.nav
-              }
-            >
-              <a href="/food">Food</a>
-            </div>
-            <div
-              className={
-                pathname === "/" ? `${styles.nav} ${styles.active}` : styles.nav
-              }
-            >
-              <a href="/">Transaksi</a>
-            </div>
+        <div className={styles.wrapperNav}>
+          <div
+            className={
+              pathname === "/food"
+                ? `${styles.nav} ${styles.active}`
+                : styles.nav
+            }
+          >
+            <a href="/food">Food</a>
+          </div>
+          <div
+            className={
+              pathname === "/" ? `${styles.nav} ${styles.active}` : styles.nav
+            }
+          >
+            <a href="/">Transaksi</a>
           </div>
         </div>
       </div>

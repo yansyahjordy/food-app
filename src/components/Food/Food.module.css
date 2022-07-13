@@ -1,9 +1,8 @@
 .app {
-  max-width: 1230px;
-  margin: auto;
-  padding: 0 15px 0 15px;
+  padding: 0 60px;
+  margin-top: 125px;
+  height: 100%;
 }
 .content {
-  margin-top: 125px;
+  height: 100%;
 }
-

@@ -15,11 +15,9 @@ export default function Food() {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div>
-      <div className={styles.app}>
-        <div className={styles.content}>
-          {rawData && <FoodList dataset={rawData} />}
-        </div>
+    <div className={styles.app}>
+      <div className={styles.content}>
+        {rawData && <FoodList dataset={rawData} />}
       </div>
     </div>
   );

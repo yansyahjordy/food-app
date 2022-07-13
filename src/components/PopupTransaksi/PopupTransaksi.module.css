@@ -1,0 +1,125 @@
+.popupContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 1.25rem;
+  max-height: 90%;
+  height: 100%;
+}
+.textHeader {
+  margin-bottom: 30px;
+}
+.tableWrapper {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+}
+.table {
+  width: 100%;
+  font-size: 1rem;
+  border-collapse: collapse;
+  border-radius: 10px;
+}
+.table img {
+  width: 50px;
+  height: 50px;
+}
+.table tr:nth-child(odd) {
+  background-color: rgb(225, 225, 225, 0.3);
+}
+.table th {
+  font-weight: 500;
+  background-color: rgb(200, 200, 200, 0.3);
+  height: 60px;
+}
+.table tr {
+  height: 60px;
+}
+.kembalian {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.kembalian .text {
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+.kembalian input {
+  outline: blue;
+  padding: 12px 8px;
+  margin-bottom: 25px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.popupButton {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.popupButton button {
+  width: 100%;
+  height: 40px;
+}
+.line {
+  content: "";
+  width: 2px;
+  background-color: rgb(225, 225, 225);
+  min-height: 300px;
+}
+
+.button1 {
+  font-size: 1.25rem;
+  color: var(--color-red);
+  border: 2px solid var(--color-red);
+  border-radius: 5px;
+  background-color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button2 {
+  font-size: 1.25rem;
+  color: white;
+  border: 2px solid var(--color-blue);
+  border-radius: 5px;
+  background-color: var(--color-blue);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.kembalianText {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+  color: var(--color-red);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  font-size: 15px;
+}
+
+.kembalianText span {
+  flex: 1;
+}
+
+.buttonWrapper {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button3 {
+  font-size: 1.25rem;
+  color: white;
+  border: 2px solid var(--color-blue);
+  border-radius: 5px;
+  background-color: var(--color-blue);
+  font-weight: bold;
+  width: 80%;
+  padding: 12px 25px;
+  cursor: pointer;
+}

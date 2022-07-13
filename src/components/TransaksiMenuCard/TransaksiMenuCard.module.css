@@ -4,9 +4,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
-  height: 225px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 25%;
+  max-height: 260px;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
   cursor: pointer;
 }
 
@@ -17,6 +17,7 @@
   cursor: pointer;
 }
 .text {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

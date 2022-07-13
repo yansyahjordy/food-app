@@ -2,22 +2,20 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Transaksi.module.css";
 import icon from "../../assets/chef.png";
-import TransaksiMenuCard from "./TransaksiMenuCard/TransaksiMenuCard";
-import ListPesananCard from "./ListPesananCard/ListPesananCard";
-import PopupTransaksi from "./PopupTransaksi/PopupTransaksi";
-import ModalSaved from "./ModalSaved/ModalSaved";
+import TransaksiMenuCard from "../TransaksiMenuCard/TransaksiMenuCard";
+import ListPesananCard from "../ListPesananCard/ListPesananCard";
+import PopupTransaksi from "../PopupTransaksi/PopupTransaksi";
+import ModalSaved from "../ModalSaved/ModalSaved";
 
-export default function Transaksi({ dataset }) {
+export default function Transaksi() {
   const [togglePop, setTogglePop] = useState(false);
   const [toggleModal, setToggleModal] = useState(false);
   const [rawData, setrawData] = useState([]);
   const [listMenuBuy, setlistMenuBuy] = useState("");
 
-  const url = "https://api-test.alan.co.id/api/v1/food";
-
   useEffect(() => {
     axios
-      .get(url)
+      .get(process.env.REACT_APP_BASE_URI + "/food")
       .then((x) => {
         let data = x.data.data;
         data = data.map((ef) => {
@@ -53,7 +51,7 @@ export default function Transaksi({ dataset }) {
   }
 
   return (
-    <div>
+    <>
       <div className={styles.app}>
         <div className={styles.content}>
           <div className={styles.menu}>
@@ -113,6 +111,6 @@ export default function Transaksi({ dataset }) {
       <div className={toggleModal ? `${styles.activePop}` : styles.modal}>
         <ModalSaved click={toggleModalActive} />
       </div>
-    </div>
+    </>
   );
 }

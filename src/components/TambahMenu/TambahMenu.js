@@ -79,7 +79,9 @@ export default function TambahMenu() {
                   <section className={styles.dragDrop}>
                     <div {...getRootProps()}>
                       <input {...getInputProps()} />
-                      <p>Drag and drop some files here, or click</p>
+                      {!foodImage && (
+                        <p>Drag and drop some files here, or click</p>
+                      )}
                     </div>
                     {foodImage && (
                       <img
