@@ -50,7 +50,11 @@ export default function Transaksi({ dataset }) {
   function toggleModalActive() {
     setToggleModal(!toggleModal);
   }
-
+  function count() {
+    let total = 0;
+    listMenuBuy.map((a) => (total += a.count * a.price));
+    return total;
+  }
   return (
     <div>
       <div className={styles.app}>
@@ -85,7 +89,7 @@ export default function Transaksi({ dataset }) {
                 <button onClick={() => window.print()}>Print Bill</button>
               </div>
               <div className={styles.button3}>
-                <button onClick={() => togglePopup()}>Charge Rp 40.000</button>
+                <button onClick={() => togglePopup()}>Charge {()=>count()}</button>
               </div>
             </div>
           </div>
