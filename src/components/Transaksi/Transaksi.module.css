@@ -1,7 +1,7 @@
 .app {
   max-width: 1230px;
   margin: auto;
-  padding:0 15px 0 15px;
+  padding: 0 15px 0 15px;
 }
 .content {
   margin-top: 125px;
@@ -17,58 +17,82 @@
   display: flex;
   flex-direction: column;
   width: 35%;
-  padding:20px;
+  padding: 20px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  gap:20px
+  gap: 20px;
 }
-.listPesanan{
+.listPesanan {
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 10px;
 }
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  gap:10px;
+  gap: 10px;
 }
 .logo img {
   width: 30px;
   height: 30px;
 }
-.button{
-    display: flex;
-    gap:10px;
-    flex-direction: column;
+.button {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
-.button button{
-    font-size: 1.25rem;
-    border-radius: 5px;
-    height: 40px;
-    cursor: pointer;
+.button button {
+  font-size: 1.25rem;
+  border-radius: 5px;
+  height: 40px;
+  cursor: pointer;
 }
-.button1 button{
-    width: 100%;
-    border:2px solid var(--color-red);
-    background-color: #fff;
-    color: var(--color-red);
+.button1 button {
+  width: 100%;
+  border: 2px solid var(--color-red);
+  background-color: #fff;
+  color: var(--color-red);
 }
-.button2{
-    display: flex;
-    gap:10px;
-    width: 100%;
+.button2 {
+  display: flex;
+  gap: 10px;
+  width: 100%;
 }
-.button2 button{
-    flex: 1;
-    color: #fff;
-    background-color: var(--color-green);
-    border: 2px solid var(--color-green);
+.button2 button {
+  flex: 1;
+  color: #fff;
+  background-color: var(--color-green);
+  border: 2px solid var(--color-green);
 }
-.button3 button{
-    width: 100%;
-    color:#fff;
-    background-color: var(--color-blue);
-    border:2px solid var(--color-blue)
+.button3 button {
+  width: 100%;
+  color: #fff;
+  background-color: var(--color-blue);
+  border: 2px solid var(--color-blue);
+}
+
+.popup {
+  font-size: 1.5rem;
+  position: fixed;
+  width: 70%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 11;
+  padding:20px
+}
+
+.blackBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }

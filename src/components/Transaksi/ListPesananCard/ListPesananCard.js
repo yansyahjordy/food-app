@@ -5,7 +5,7 @@ export default function ListPesananCard({dataset}) {
     <>
     <div className={style.container}>
       <div className={style.image}>
-        <img src="https://via.placeholder.com/400" alt="food"></img>
+        <img src={dataset.picture==""? "https://via.placeholder.com/400":dataset.picture} alt="food"></img>
       </div>
       <div className={style.food}>
         {dataset.name}
