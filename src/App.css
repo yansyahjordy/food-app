@@ -20,6 +20,10 @@ body {
   font-size: 16px;
 }
 
+input {
+  outline: none;
+  padding: 6px 12px;
+}
 @media screen and (max-width: 1200px) {
   body {
     font-size: 14px;

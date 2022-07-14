@@ -9,7 +9,6 @@ export default function TambahMenu() {
   const [foodImage, setFoodImage] = useState("");
   const [price, setPrice] = useState("");
 
-  const posturl = "https://api-test.alan.co.id/api/v1/food/add";
   const config = {
     headers: {
       "X-SECRET-TOKEN":
@@ -20,7 +19,7 @@ export default function TambahMenu() {
   function PostData() {
     axios
       .post(
-        posturl,
+        process.env.REACT_APP_BASE_URI + "/food/add",
         {
           name: foodName,
           picture: foodImage,
@@ -70,6 +69,7 @@ export default function TambahMenu() {
                 onChange={(e) => {
                   setFoodName(e.target.value);
                 }}
+                type={"text"}
               ></input>
             </div>
             <div>
@@ -101,6 +101,7 @@ export default function TambahMenu() {
                 <input
                   onChange={(e) => setPrice(e.target.value)}
                   value={price}
+                  type={"text"}
                 ></input>
               </div>
             </div>

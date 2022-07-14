@@ -24,7 +24,7 @@ export default function FoodList({ dataset }) {
                 <tr key={index}>
                   <td style={{ textAlign: "center" }}>{index + 1}</td>
                   <td>{data.name}</td>
-                  <td>
+                  <td className={styles.image}>
                     <img src={data.picture} alt="food"></img>
                   </td>
                   <td>Rp.10.000</td>

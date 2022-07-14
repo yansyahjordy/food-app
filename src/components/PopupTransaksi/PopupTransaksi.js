@@ -35,6 +35,7 @@ export default function PopupTransaksi({
     setisButtonOkActive(false);
     click();
   }
+
   return (
     <>
       <p className={styles.textHeader}>Detail Pesanan</p>
@@ -50,7 +51,7 @@ export default function PopupTransaksi({
               </tr>
             </thead>
             <tbody>
-              {dataset &&
+              {dataset ? (
                 dataset.map((data, index) => (
                   <tr key={index}>
                     <td style={{ textAlign: "center" }}>{index + 1}</td>
@@ -62,7 +63,10 @@ export default function PopupTransaksi({
                     </td>
                     <td>{data.count * data.price}</td>
                   </tr>
-                ))}
+                ))
+              ) : (
+                <tr></tr>
+              )}
             </tbody>
           </table>
         </div>

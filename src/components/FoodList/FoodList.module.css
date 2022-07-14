@@ -42,8 +42,13 @@
 }
 .table th {
   background-color: rgb(200, 200, 200, 0.3);
-  height: 60px;
+  padding: 25px 0;
 }
 .table tr {
-  height: 60px;
+  padding: 25px 0;
+}
+.table td.image {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
 }
