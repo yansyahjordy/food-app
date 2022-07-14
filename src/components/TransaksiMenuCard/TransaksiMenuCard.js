@@ -1,8 +1,6 @@
 import React from "react";
 import style from "./TransaksiMenuCard.module.css";
 export default function TransaksiMenuCard({ dataset, click }) {
-  // console.log(dataset)
-
   return (
     <div className={style.container} onClick={() => click(dataset.food_code)}>
       <img

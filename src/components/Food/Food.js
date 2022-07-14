@@ -3,12 +3,11 @@ import axios from "axios";
 import styles from "./Food.module.css";
 import FoodList from "../FoodList/FoodList";
 export default function Food() {
-  const url = "https://api-test.alan.co.id/api/v1/food";
   const [rawData, setrawData] = useState("");
 
   useEffect(() => {
     axios
-      .get(url)
+      .get(process.env.REACT_APP_BASE_URI + "/food")
       .then((x) => {
         setrawData(x.data.data);
       })

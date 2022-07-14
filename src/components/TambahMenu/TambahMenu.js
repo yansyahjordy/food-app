@@ -73,7 +73,7 @@ export default function TambahMenu() {
               ></input>
             </div>
             <div>
-              <p>Nama Menu</p>
+              <p>Gambar Menu</p>
               <Dropzone onDrop={(acceptedFiles) => uploadImage(acceptedFiles)}>
                 {({ getRootProps, getInputProps }) => (
                   <section className={styles.dragDrop}>
@@ -95,7 +95,7 @@ export default function TambahMenu() {
               </Dropzone>
             </div>
             <div>
-              <p>Nama Menu</p>
+              <p>Harga Menu</p>
               <div className={styles.inputRp}>
                 <div className={styles.Rp}>Rp.</div>
                 <input
