@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/food-app/static/css/main.22140ea2.css",
+    "main.js": "/food-app/static/js/main.55b484a7.js",
+    "static/media/chef.png": "/food-app/static/media/chef.fd450e8f9417ebe6dd10.png",
+    "static/media/fast-food.png": "/food-app/static/media/fast-food.f69fa4942a666aa53712.png",
+    "index.html": "/food-app/index.html",
+    "main.22140ea2.css.map": "/food-app/static/css/main.22140ea2.css.map",
+    "main.55b484a7.js.map": "/food-app/static/js/main.55b484a7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.22140ea2.css",
+    "static/js/main.55b484a7.js"
+  ]
+}
